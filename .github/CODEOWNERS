@@ -1,4 +1,6 @@
-* @lionelrrivas
+# Code owners file
+
+* @lionelrrivas @lionelrrivas-collaborator
 *.js @lionelrrivas
 *.yml @lionelrrivas-collaborator
 /public/ @lionelrrivas
