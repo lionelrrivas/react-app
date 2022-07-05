@@ -56,6 +56,12 @@
         "name": "alpha",
         "prerelease": true
       }
-    ]
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ],
+    "repositoryUrl": "https://github.com/lionelrrivas/react-app.git"
   }
 }
