@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Welcome to my React App version 8
+          Welcome to my React App version 9
         </a>
       </header>
     </div>
