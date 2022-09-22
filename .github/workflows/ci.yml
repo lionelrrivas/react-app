@@ -23,7 +23,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: "**/package-lock.json"
       - run: npm ci
-      - run: npm run format:check
+      # - run: npm run format:check
       - run: npm test -- --coverage
         env:
           CI: true
@@ -60,5 +60,5 @@ jobs:
       - name: Upload Code Coverage Reports
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx codecov
-        env: 
+        env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
