@@ -1,0 +1,14 @@
+name: Release Notifier
+on:
+  release:
+    types: [published]
+
+jobs:
+  send-slack-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish Release Notification
+        run: |
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":"React App Release ${{ secrets.github.event.realease.tag_name }} <${{ github.event.realease.html_url }}|is available here>."}' 
+          ${{ secrets.RELEASE_CHANNEL_URL }}
