@@ -24,14 +24,14 @@ jobs:
           cache-dependency-path: "**/package-lock.json"
       - run: npm ci
       - run: npm run format:check
-      # - run: npm test -- --coverage
-      #   env:
-      #     CI: true
-      # - name: Upload Test Coverage
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: code-coverage
-      #     path: coverage
+      - run: npm test -- --coverage
+        env:
+          CI: true
+      - name: Upload Test Coverage
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage
+          path: coverage
       - name: Build Project
         if: github.event_name == 'push'
         run: npm run build
