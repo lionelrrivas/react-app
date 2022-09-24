@@ -10,6 +10,5 @@ jobs:
       - name: Publish Issue Notification
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"New Issue Created ${{ github.event.release.tag_name }} \
-          <${{ github.event.issue.html_url }}|${{ github.event.issue.title}}>."}' \
+          --data '{"text":"New Issue Created ${{ github.event.release.tag_name }} <${{ github.event.issue.html_url }}|${{ github.event.issue.title}}>."}' \
           ${{ secrets.RELEASE_CHANNEL_URL }}
