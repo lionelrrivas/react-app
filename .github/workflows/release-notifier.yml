@@ -9,4 +9,7 @@ jobs:
     steps:
       - name: Publish Release Notification
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"React App Release ${{ github.event.release.tag_name }} <${{ github.event.release.html_url }}|is available here>."}' ${{ secrets.RELEASE_CHANNEL_URL }}
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"React App Release ${{ github.event.release.tag_name }} \
+          <${{ github.event.release.html_url }}|is available here>."}' \
+          ${{ secrets.RELEASE_CHANNEL_URL }}
