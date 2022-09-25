@@ -1,8 +1,8 @@
-![](https://github.com/lionelrrivas/react-app/workflows/CI/badge.svg?branch=develop&event=push)
+# Getting Started with Create React App
+
+![Build Status](https://github.com/lionelrrivas/react-app/workflows/CI/badge.svg?branch=develop&event=push)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
-# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
