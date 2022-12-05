@@ -48,12 +48,12 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.REACT_APP_RELEASE_TOKEN }}
-      - name: Deploy to Staging
-        if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
-        run: npx surge --project ./build --domain https://lean-event.surge.sh
-      - name: Deploy to Production
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npx surge --project ./build --domain https://ethereal-question.surge.sh
+      # - name: Deploy to Staging
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+      #   run: npx surge --project ./build --domain https://lean-event.surge.sh
+      # - name: Deploy to Production
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      #   run: npx surge --project ./build --domain https://ethereal-question.surge.sh
       - name: Upload Code Coverage Reports
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx codecov
