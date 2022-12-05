@@ -2,13 +2,13 @@ name: Greeter
 author: Lionel R. Rivas
 description: Action to greet someone
 inputs:
-  who-to-greet: 
-    description: 'Person to greet'
+  who-to-greet:
+    description: "Person to greet"
     required: true
     default: Lionel
 outputs:
   time:
-    description: 'The time of greeting'
+    description: "The time of greeting"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
