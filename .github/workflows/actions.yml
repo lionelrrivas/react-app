@@ -12,7 +12,6 @@ jobs:
           body: Body
           assignees: |
             lionelrrivas
-            someoneelse
       - run: |
           echo ${{ steps.issue-cretor.outputs.issue }}
       - uses: ./.github/actions/greeter
