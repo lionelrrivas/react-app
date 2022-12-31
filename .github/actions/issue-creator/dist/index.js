@@ -45,7 +45,7 @@ module.exports = /******/ (function (modules, runtime) {
   /******/ // the startup function
   /******/ function startup() {
     /******/ // Load entry module and return exports
-    /******/ return __webpack_require__(353);
+    /******/ return __webpack_require__(889);
     /******/
   }
   /******/
@@ -1954,34 +1954,6 @@ module.exports = /******/ (function (modules, runtime) {
       exports.default = void 0;
       var _default = "00000000-0000-0000-0000-000000000000";
       exports.default = _default;
-
-      /***/
-    },
-
-    /***/ 353: /***/ function (__unusedmodule, __unusedexports, __webpack_require__) {
-      const core = __webpack_require__(470);
-      const github = __webpack_require__(469);
-
-      try {
-        core.debug("debug message");
-        core.warning("warning message");
-        core.error("error message");
-
-        const personToGreet = core.getInput("who-to-greet");
-        console.log(`Hello ${personToGreet}`);
-        core.setSecret(personToGreet);
-
-        const time = new Date();
-        core.setOutput("time", time.toDateString());
-
-        core.startGroup("Logging github object");
-        console.log(JSON.stringify(github, null, "\t"));
-        core.endGroup();
-
-        core.exportVariable("HELLO", "hello");
-      } catch (error) {
-        core.setFailed(error.message);
-      }
 
       /***/
     },
@@ -17465,6 +17437,33 @@ module.exports = /******/ (function (modules, runtime) {
         }
 
         state.registry[name].splice(index, 1);
+      }
+
+      /***/
+    },
+
+    /***/ 889: /***/ function (__unusedmodule, __unusedexports, __webpack_require__) {
+      const core = __webpack_require__(470);
+      const github = __webpack_require__(469);
+
+      try {
+        const token = core.getInput("token");
+        const title = core.getInput("title");
+        const body = core.getInput("body");
+        const assignees = core.getInput("assignees");
+
+        const octokit = new github.getOctokit(token);
+        const response = octokit.rest.issues.create({
+          ...github.context.repo,
+          title: title,
+          body: body,
+
+          assignees: assignees ? assignees.split("\n") : undefined,
+        });
+
+        core.setOutput("issue", JSON.stringify(response.data));
+      } catch (error) {
+        core.setFailed(error);
       }
 
       /***/

@@ -4,9 +4,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: ./.github/actions/issue-creator
+        id: issue-creator
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Title
+          body: Body
+          assignees: |
+            lionelrrivas
+      - run: |
+          echo ${{ steps.issue-cretor.outputs.issue }}
       - uses: ./.github/actions/greeter
         id: greet
         with:
           who-to-greet: "World"
       - run: |
           echo "Time: ${{ steps.greet.outputs.time }}"
+          echo $HELLO
