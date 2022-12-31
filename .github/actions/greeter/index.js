@@ -2,6 +2,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 
 try {
+  throw new Error("intentional error thrown.");
   const personToGreet = core.getInput("who-to-greet");
   console.log(`Hello ${personToGreet}`);
 
