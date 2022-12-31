@@ -1700,7 +1700,6 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
-  throw new Error("intentional error thrown.");
   const personToGreet = core.getInput("who-to-greet");
   console.log(`Hello ${personToGreet}`);
 
