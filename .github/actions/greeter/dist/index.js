@@ -1711,7 +1711,7 @@ try {
   const time = new Date();
   core.setOutput("time", time.toDateString());
 
-  core.startGroup("Loggin github object");
+  core.startGroup("Logging github object");
   console.log(JSON.stringify(github, null, "\t"));
   core.endGroup();
 
