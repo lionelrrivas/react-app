@@ -1700,13 +1700,22 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
+  core.debug("debug message");
+  core.warning("warning message");
+  core.error("error message");
+
   const personToGreet = core.getInput("who-to-greet");
   console.log(`Hello ${personToGreet}`);
+  core.setSecret(personToGreet);
 
   const time = new Date();
   core.setOutput("time", time.toDateString());
 
+  core.startGroup("Loggin github object");
   console.log(JSON.stringify(github, null, "\t"));
+  core.endGroup();
+
+  core.exportVariable("HELLO", "hello");
 } catch (error) {
   core.setFailed(error.message);
 }
