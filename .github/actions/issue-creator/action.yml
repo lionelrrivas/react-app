@@ -1,0 +1,20 @@
+name: "Github issue creator action"
+author: lionelrrivas
+description: "Opens a github issue"
+inputs:
+  token:
+    description: "Github Token"
+    required: true
+  title:
+    description: "Title of the issue"
+    required: true
+  body:
+    description: "Body of issue"
+  assignees:
+    description: "Issue assignee(s)"
+outputs:
+  issue:
+    description: "A JSON object of the issue"
+runs:
+  using: "node16"
+  main: "dist/index.js"
