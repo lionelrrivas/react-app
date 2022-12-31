@@ -4,6 +4,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: ./.github/actions/issue-creator
+        id: issue-creator
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Title
+          body: Body
+          assignees: |
+            lionelrrivas
+            someoneelse
+      - run: |
+          echo ${{ steps.issue-cretor.outputs.issue }}
       - uses: ./.github/actions/greeter
         id: greet
         with:
