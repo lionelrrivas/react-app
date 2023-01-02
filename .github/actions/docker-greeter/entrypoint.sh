@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 
 echo "::debug ::Debug Message"
