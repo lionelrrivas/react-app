@@ -21,3 +21,10 @@ jobs:
       - run: |
           echo "Time: ${{ steps.greet.outputs.time }}"
           echo $HELLO
+      - uses: ./.github/actions/docker-greeter
+        id: docker-greet
+        with:
+          who-to-greet: "World"
+      - run: |
+          echo "Time: ${{ steps.docker-greet.outputs.time }}"
+          echo $HELLO
