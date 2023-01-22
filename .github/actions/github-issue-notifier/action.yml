@@ -1,0 +1,16 @@
+name: "Slack Github Issue Notifier"
+author: lionelrrivas
+description: "Sends a message to a slack channel with GitHub workflow information"
+inputs:
+  slack-webhook:
+    description: "Slack Webhook"
+    required: true
+  message:
+    description: "Slack message"
+    required: true
+runs:
+  using: docker
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.slack-webhook }}
+    - ${{ inputs.message }}
