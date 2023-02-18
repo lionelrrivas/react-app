@@ -9,7 +9,7 @@ var_dump($_ENV);
 echo "::debug ::Sending message to Slack\n";
 
 $response = Requests::post(
-    $_ENV('INPUT_SLACK_WEBHOOK'),
+    $_ENV('INPUT_SLACK-WEBHOOK'),
     array(
         'Content-type' => 'application/json'
     ),
