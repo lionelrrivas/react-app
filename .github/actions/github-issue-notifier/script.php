@@ -5,6 +5,9 @@ Requests::register_autoloader();
 
 var_dump($argv);
 var_dump($_ENV);
+
+echo "::debug ::Sending message to Slack\n";
+
 $response = Requests::post(
     $_ENV('INPUT_SLACK_WEBHOOK'),
     array(
@@ -45,8 +48,11 @@ $response = Requests::post(
     ))
 );
 
+echo "::group::Slack response\n"
 var_dump($response);
+echo "::endgroup::\n";
 
 if(!$response->success) {
     echo $response->body;
+    exit(1);
 }
