@@ -48,7 +48,7 @@ $response = Requests::post(
     ))
 );
 
-echo "::group::Slack response\n"
+echo "::group::Slack response\n";
 var_dump($response);
 echo "::endgroup::\n";
 
